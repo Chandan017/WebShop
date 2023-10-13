@@ -8,10 +8,22 @@ import { Component } from '@angular/core';
 export class ProductsHeaderComponent {
 
   sort = '';
+  itemCount = 12;
+  colNumber = 1;
 
   sortUpdated(newValue:string)
   {
     this.sort = newValue;
+  }
+
+  onItemUpdated(count:number)
+  {
+      this.itemCount = count;
+  }
+
+  onColumnUpdated(colNum:number)
+  {
+    this.colNumber = colNum;
   }
 
 }

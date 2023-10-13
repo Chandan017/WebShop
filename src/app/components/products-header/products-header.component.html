@@ -1,21 +1,65 @@
-<mat-card class="mb-4">
-    <div>
-        <mat-card>
-            <div>
-                <button mat-button [matMenuTriggerFor]="sortMenu">Sort By {{sort}}</button>
+<mat-card class="mb-4 p-2">
+    <div class="flex justify-between">
+        <div>
+            <button mat-button  [matMenuTriggerFor]="sortByMenu">
+                Sort By {{sort}}
+                <mat-icon>expand_more</mat-icon>
+            </button>
 
-                <mat-menu #sortMenu = "matMenu" >
+            <mat-menu #sortByMenu="matMenu">
+                <div>
+                    <button mat-button (click)="sortUpdated('DES')">DES</button>
+                </div>
+               <div>
+                <button mat-button (click)="sortUpdated('ASC')">ASC</button>
+               </div>
+                
+            </mat-menu>
+        </div>
+
+        <div class="flex items-center">
+
+            <div>
+                <button mat-button [matMenuTriggerFor]="menu"  >Show {{itemCount}}
+                    <mat-icon>expand_more</mat-icon>
+                </button>
+                
+
+                <mat-menu #menu="matMenu">
+
                     <div>
-                        <button (click)="sortUpdated('ASC')" mat-button>ASC</button>
+                        <button (click)="onItemUpdated(12)" mat-button>12</button>
+                    </div>
+
+                    <div>
+                        <button mat-button (click)="onItemUpdated(24)">24</button>
+                    </div>
+                    
+                    
+                    <div>
+                        <button mat-button (click)="onItemUpdated(36)">36</button>
                     </div>
                     
                     <div>
-                        <button (click)="sortUpdated('DESC')" mat-button>DESC</button>
+                        <button mat-button (click)="onItemUpdated(48)">48</button>
                     </div>
-                   
+                    
                 </mat-menu>
+               
             </div>
-        </mat-card>
+
+            <button >
+                <mat-icon>view_list</mat-icon>
+            </button>
+            <button>
+                <mat-icon>view_module</mat-icon>
+            </button>
+            <button>
+                <mat-icon>view_comfy</mat-icon>
+            </button>
+
+        </div>
+        
     </div>
 
 </mat-card>
