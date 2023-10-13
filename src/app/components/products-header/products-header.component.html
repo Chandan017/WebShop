@@ -1,0 +1,21 @@
+<mat-card class="mb-4">
+    <div>
+        <mat-card>
+            <div>
+                <button mat-button [matMenuTriggerFor]="sortMenu">Sort By {{sort}}</button>
+
+                <mat-menu #sortMenu = "matMenu" >
+                    <div>
+                        <button (click)="sortUpdated('ASC')" mat-button>ASC</button>
+                    </div>
+                    
+                    <div>
+                        <button (click)="sortUpdated('DESC')" mat-button>DESC</button>
+                    </div>
+                   
+                </mat-menu>
+            </div>
+        </mat-card>
+    </div>
+
+</mat-card>
