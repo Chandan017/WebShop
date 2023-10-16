@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  cols:any;
+  columsCountChange(colNum:number)
+  {
+    this.cols = colNum;
+    
+  }
+
+
 }

@@ -5,7 +5,8 @@
     </mat-drawer>
 
     <mat-drawer-content class="p-6">
-        <app-products-header></app-products-header>
+        <app-products-header (columsCountChange)="columsCountChange($event)"></app-products-header>
+        {{cols}}
     </mat-drawer-content>
 
 

@@ -21,7 +21,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { ProductsHeaderComponent } from './components/products-header/products-header.component'
+import { ProductsHeaderComponent } from './components/products-header/products-header.component';
+import { FiltersComponent } from './filters/filters.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProductsHeaderComponent } from './components/products-header/products-h
     HeaderComponent,
     HomeComponent,
     NotFoundComponent,
-    ProductsHeaderComponent
+    ProductsHeaderComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,
