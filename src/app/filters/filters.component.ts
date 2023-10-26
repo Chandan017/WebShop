@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filters',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./filters.component.css']
 })
 export class FiltersComponent {
+
+  @Output() showCategory = new EventEmitter<string>();
+  categories = ['sports' , 'shoes'];
+
+
+  onShowCategory(category:string)
+  {
+    console.log("fsdf")
+    this.showCategory.emit(category);
+  }
 
 }
