@@ -23,7 +23,10 @@ import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductsHeaderComponent } from './components/products-header/products-header.component';
 import { FiltersComponent } from './filters/filters.component';
-import { ProductBoxComponent } from './product-box/product-box.component'
+import { ProductBoxComponent } from './product-box/product-box.component';
+import { CartComponent } from './cart/cart.component'
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -33,13 +36,15 @@ import { ProductBoxComponent } from './product-box/product-box.component'
     NotFoundComponent,
     ProductsHeaderComponent,
     FiltersComponent,
-    ProductBoxComponent
+    ProductBoxComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
+    HttpClientModule,
+    MatProgressSpinnerModule,
     MatSidenavModule,    
     MatGridListModule,
     MatMenuModule,

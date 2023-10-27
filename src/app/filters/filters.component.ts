@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-filters',
@@ -8,12 +9,22 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class FiltersComponent {
 
   @Output() showCategory = new EventEmitter<string>();
-  categories = ['sports' , 'shoes'];
+  categories:string[] = ['sports' , 'shoes'];
+
+  
+  constructor(private ds:DataServiceService) {
+    this.ds.getCategories().subscribe((categoriesList) =>
+    {
+      this.categories = categoriesList;
+    })
+  
+    
+  }
 
 
   onShowCategory(category:string)
   {
-    console.log("fsdf")
+    
     this.showCategory.emit(category);
   }
 

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DataServiceService } from 'src/app/data-service.service';
+import { ProductModel } from 'src/app/product-model';
 const ROWS_HEIGHT:{[id:number]:number} = {1:400 , 3:335 , 4:350}
 @Component({
   selector: 'app-home',
@@ -12,6 +14,19 @@ export class HomeComponent {
   cols = 3;
   rowHeight = ROWS_HEIGHT[this.cols];
   category : string | undefined;
+
+  productList!: ProductModel[];
+
+
+  constructor(private ds:DataServiceService) {
+
+    this.ds.getProducts().subscribe((res) =>
+    {
+      this.productList = res;
+      console.log(res);
+    })
+   
+  }
   columsCountChange(colNum:number)
   {
     this.cols = colNum;
@@ -19,9 +34,23 @@ export class HomeComponent {
     
   }
 
+  sortUpdated(sortParameter:string)
+  {
+    // console.log(sortParameter)
+    this.ds.getProductsBySort(sortParameter).subscribe((res) => 
+    {
+      this.productList = res;
+    })
+    
+  }
+
   onShowCategory(newCategory : string)
   {
-    console.log("dsdf")
+    console.log(newCategory)
+    this.ds.getProductsByCategory(newCategory).subscribe((res) => 
+    {
+      this.productList = res;
+    })
     this.category = newCategory;
   }
 

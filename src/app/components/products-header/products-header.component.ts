@@ -8,15 +8,18 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class ProductsHeaderComponent {
 
   @Output() columsCountChange = new EventEmitter<number>();
+  @Output() sortUpdated = new EventEmitter<string>();
+  // @Output() sortUpdated = new EventEmitter<string>();
 
   sort = '';
   itemCount = 12;
   colNumber = 1;
 
-  sortUpdated(newValue:string)
-  {
-    this.sort = newValue;
-  }
+  // onSortUpdated(sortParameter:string)
+  // {
+  //   // console.log(sortParameter)
+  //   this.sortUpdated.emit(sortParameter);
+  // }
 
   onItemUpdated(count:number)
   {
@@ -25,7 +28,13 @@ export class ProductsHeaderComponent {
 
   onColumnUpdated(colNum:number)
   {
+    
     this.columsCountChange.emit(colNum);
+  }
+
+  onSortUpdated(sortParameter:string)
+  {
+    this.sortUpdated.emit(sortParameter);
   }
 
 }

@@ -8,10 +8,10 @@
 
             <mat-menu #sortByMenu="matMenu">
                 <div>
-                    <button mat-button (click)="sortUpdated('DES')">DES</button>
+                    <button mat-button (click)="onSortUpdated('desc')">DES</button>
                 </div>
                <div>
-                <button mat-button (click)="sortUpdated('ASC')">ASC</button>
+                <button mat-button (click)="onSortUpdated('asc')">ASC</button>
                </div>
                 
             </mat-menu>

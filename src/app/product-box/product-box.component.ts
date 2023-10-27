@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ProductModel } from '../product-model';
 
 @Component({
   selector: 'app-product-box',
@@ -7,6 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductBoxComponent {
 
-  @Input() FullWidthMode = false;
+  @Input() fullWidthMode = false;
+  @Input() product!:ProductModel;
 
 }

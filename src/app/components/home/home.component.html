@@ -5,21 +5,12 @@
     </mat-drawer>
 
     <mat-drawer-content class="p-6">
-        <app-products-header (columsCountChange)="columsCountChange($event)"></app-products-header>
-        <!-- {{cols}}
-        {{category}} -->
-
-        <!-- <mat-grid-list>
-            <mat-grid-tile>
-                <app-product-box [FullWidthMode]="cols === 1"></app-product-box> 
-            </mat-grid-tile>
-        </mat-grid-list> -->
-       
+        <app-products-header (columsCountChange)="columsCountChange($event)"  (sortUpdated)="sortUpdated($event)"></app-products-header>     
 
         <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]="rowHeight">
 
-            <mat-grid-tile>
-                <app-product-box></app-product-box>
+            <mat-grid-tile *ngFor="let product of productList">
+                <app-product-box class="w-full" [fullWidthMode]="cols === 1"  [product]="product" ></app-product-box>
             </mat-grid-tile>
             
 
